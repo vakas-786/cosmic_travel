@@ -1,32 +1,17 @@
-<%= form_with(model: planet, local: true) do |form| %>
-  <% if planet.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(planet.errors.count, "error") %> prohibited this planet from being saved:</h2>
+<% if flash[:errors] %>
+<% flash[:errors].each do |e| %>
+  <%= e %>
+<br>
+<% end %>
+<% end %>
 
-      <ul>
-        <% planet.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :distance_from_earth %>
-    <%= form.text_field :distance_from_earth %>
-  </div>
-
-  <div class="field">
-    <%= form.label :nearest_star %>
-    <%= form.text_field :nearest_star %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<%= form_for @planet do |f| %> 
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :distance_from_earth %>
+  <%= f.text_field :distance_from_earth %>
+  <%= f.label :nearest_star %>
+  <%= f.text_field :nearest_star %>
+  
+<%= f.submit %>
 <% end %>

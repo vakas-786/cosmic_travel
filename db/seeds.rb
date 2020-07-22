@@ -6,14 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Planet.destroy_all
+Scientist.destroy_all 
+Mission.destroy_all
 
-20.times {Planet.create(name: Faker::TvShows::StarTrek.unique.location,
+20.times {Planet.create(name: Faker::JapaneseMedia::OnePiece.unique.island,
                         distance_from_earth: Faker::Space.unique.distance_measurement,
-                        nearest_star: Faker::Space.star)}
+                        nearest_star: Faker::Games::Zelda.location)}
 
-15.times {Scientist.create(name: Faker::FunnyName.name,
+15.times {Scientist.create(name: Faker::JapaneseMedia::DragonBall.character,
                            field_of_study: Faker::Educator.subject)}
 
-20.times {Mission.create(name: Faker::TvShows::Buffy.unique.episode,
+20.times {Mission.create(name: Faker::Movie.unique.title,
                          scientist: Scientist.all.sample, 
                          planet: Planet.all.sample)}

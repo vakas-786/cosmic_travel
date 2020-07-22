@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Scientists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Field of Study</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scientists.each do |scientist| %>
+      <tr>
+        <td><%= scientist.name %></td>
+        <td><%= scientist.field_of_study %></td>
+      
+        <td><%= link_to 'Show', scientist %></td>
+        <td><%= link_to 'Edit', edit_scientist_path(scientist) %></td>
+        <td><%= button_to 'Delete', scientist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Scientist', new_scientist_path %>

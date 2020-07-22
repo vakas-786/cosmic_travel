@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @mission.name %>
+</p>
+
+<p>
+  <strong>Scientist Name:</strong>
+  <%= @mission.scientist.name %>
+  <strong>Planet Name:</strong>
+  <%= @mission.planet.name %>
+</p>
+
+<%= link_to 'Edit', edit_mission_path(@mission) %> |
+<%= link_to 'Back', missions_path %> |
+<%= button_to 'Delete', @mission, method: :delete %>
